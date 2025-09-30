@@ -130,9 +130,9 @@ body {
 .wheel {
   position: fixed;
   bottom: 20px;
-  left: 85px;
-  width: 130px;
-  height: 130px;
+  left: 90px;
+  width: 120px;
+  height: auto;
   z-index: 100;
   opacity: 0.6;
 }
@@ -252,5 +252,17 @@ body {
     right: 14px;
     bottom: 14px;
     padding: 8px 12px;
+  }
+}
+
+@media (max-width: 900px) {
+  .wheel img {
+    width: 90px;
+  }
+}
+
+@media (max-width: 600px) {
+  .wheel {
+    display: none; /* نخفي البكرة في الهواتف */
   }
 }
