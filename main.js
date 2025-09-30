@@ -63,9 +63,9 @@ const texts = {
     conclusionTitle: " : المكونات ",
     conclusionText:
       "الحاسوب مثل فريق من عدة أعضاء. لكل عضو دور في الفريق. عندما يعملون معًا، يكتمل النظام. ببساطة، الحاسوب ليس شيئًا واحدًا، بل عدة أشياء متصلة في صندوق واحد.",
-    designerBtn: "زكرياء بزيو",
+    designerBtn: " : المصمم",
     designerItems: ["مطور واجهات", "مصمم UI/UX", "صانع البورتفوليو"],
-    sourcesBtn: "المصادر",
+    sourcesBtn: " : المصادر",
     sourcesItems: ["ChatGPT", "YouTube", "Gemini"],
   },
 };
