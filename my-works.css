@@ -1,0 +1,256 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&family=Roboto:wght@400;500;700&display=swap");
+
+:root {
+  --bg: #f6f7f8;
+  --card: #ffffff;
+  --text: #2f3738;
+  --muted-text: #596368;
+  --heading: #6b7b81;
+  --hr: #e4eaec;
+  --border: #e8eef0;
+  --btn-bg: #d7dee1;
+  --btn-hover: #c9d1d4;
+  --btn-text: #243031;
+  --shadow: 0 6px 18px rgba(18, 25, 28, 0.04);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", "Cairo", Arial, Helvetica, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  direction: ltr;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 28px auto;
+  padding: 18px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 18px;
+}
+.title h2 {
+  color: var(--heading);
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.title hr {
+  width: 25%;
+  height: 4px;
+  background: var(--hr);
+  border: none;
+  border-radius: 3px;
+  margin: 0 auto;
+}
+
+/* الأقسام */
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 18px;
+  margin: 18px auto;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  gap: 20px;
+}
+.section:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+/* النصوص */
+.text-part {
+  flex: 1;
+}
+.text-part h3 {
+  color: var(--heading);
+  font-size: 20px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.text-part hr {
+  width: 130px;
+  height: 3px;
+  background: var(--hr);
+  border: none;
+  border-radius: 2px;
+  margin-bottom: 12px;
+}
+.text-part p {
+  color: var(--muted-text);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* الصور */
+.section img {
+  width: 300px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 6px rgba(10, 16, 18, 0.03);
+  filter: saturate(0.85) contrast(0.98) brightness(0.99);
+}
+
+/* زر اللغة */
+#langToggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border: 1px solid var(--border);
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(12, 18, 20, 0.03);
+  transition: background 180ms ease, transform 120ms ease;
+  z-index: 1200;
+}
+#langToggle:hover {
+  background: var(--btn-hover);
+  transform: translateY(-1px);
+}
+
+/* العجلة */
+.wheel {
+  position: fixed;
+  bottom: 20px;
+  left: 85px;
+  width: 130px;
+  height: 130px;
+  z-index: 100;
+  opacity: 0.6;
+}
+.wheel img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.18s linear;
+  filter: grayscale(8%) brightness(0.97);
+}
+
+.dropdowns-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+.dropdown {
+  list-style: none;
+  position: relative;
+}
+.dropdown-btn {
+  position: relative;
+  background: linear-gradient(145deg, #d7dee1, #c9d1d4);
+  color: var(--btn-text);
+  padding: 12px 25px;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(18, 25, 28, 0.1);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+.dropdown-btn::after {
+  content: "▶"; /* سهم جهة اليسار */
+  position: absolute;
+  right: 5px;
+  transition: transform 0.3s ease;
+}
+.dropdown-btn.active::after {
+  transform: rotate(90deg); /* سهم للأسفل عند الفتح */
+}
+.dropdown-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(18, 25, 28, 0.15);
+  background: linear-gradient(145deg, #c9d1d4, #d7dee1);
+}
+
+.dropdown-content {
+  display: none;
+  list-style: none;
+  margin-top: 10px;
+  padding: 0;
+  background: var(--card);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  min-width: 200px;
+}
+.dropdown-content li {
+  padding: 12px 20px;
+  margin: 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--btn-text);
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+  background: linear-gradient(145deg, #ffffff, #f1f3f5);
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.dropdown-content li a {
+  color: black;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.dropdown-content li:hover {
+  background: linear-gradient(145deg, #4a90e2, #357abd);
+  color: #fff;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 15px rgba(18, 25, 28, 0.15);
+}
+
+.dropdown-content li:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 768px) {
+  .title h2 {
+    font-size: 22px;
+  }
+  .section {
+    flex-direction: column;
+    text-align: center;
+  }
+  .section:nth-child(even) {
+    flex-direction: column;
+  }
+  .text-part h3 {
+    font-size: 18px;
+  }
+  .text-part hr {
+    width: 80px;
+  }
+  .text-part p {
+    font-size: 14px;
+  }
+  .section img {
+    width: 85%;
+    margin-top: 10px;
+  }
+  #langToggle {
+    right: 14px;
+    bottom: 14px;
+    padding: 8px 12px;
+  }
+}
