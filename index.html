@@ -2,28 +2,40 @@
 <html lang="ar">
   <head>
     <meta charset="UTF-8" />
-    <title>معرض الأشخاص</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تقييم الأشخاص</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h1 class="title">📌 أضف شخصاً جديداً وقم بتقييمه</h1>
+    <h1>إضافة شخص وتقييمه</h1>
 
-    <div class="form">
-      <input type="file" id="photo" accept="image/*" />
-      <input type="text" id="firstname" placeholder="الاسم" />
-      <input type="text" id="lastname" placeholder="اللقب" />
-      <input type="number" id="age" placeholder="العمر" />
-      <div class="stars" id="stars-input">
-        <span onclick="setRating(1)">★</span>
-        <span onclick="setRating(2)">★</span>
-        <span onclick="setRating(3)">★</span>
-        <span onclick="setRating(4)">★</span>
-        <span onclick="setRating(5)">★</span>
+    <form id="personForm">
+      <label>الاسم:</label>
+      <input type="text" id="name" required />
+
+      <label>اللقب:</label>
+      <input type="text" id="surname" required />
+
+      <label>العمر:</label>
+      <input type="number" id="age" required />
+
+      <label>التقييم:</label>
+      <div class="rating">
+        <label><input type="radio" name="rating" value="1" />⭐</label>
+        <label><input type="radio" name="rating" value="2" />⭐⭐</label>
+        <label><input type="radio" name="rating" value="3" />⭐⭐⭐</label>
+        <label><input type="radio" name="rating" value="4" />⭐⭐⭐⭐</label>
+        <label><input type="radio" name="rating" value="5" />⭐⭐⭐⭐⭐</label>
       </div>
-      <button onclick="addPerson()">➕ إضافة الشخص</button>
-    </div>
 
-    <div class="grid" id="peopleGrid"></div>
+      <label>الصورة:</label>
+      <input type="file" id="image" accept="image/*" required />
+
+      <button type="submit">إضافة</button>
+    </form>
+
+    <h2>الأشخاص</h2>
+    <div id="peopleContainer" class="people-container"></div>
 
     <script src="script.js"></script>
   </body>
